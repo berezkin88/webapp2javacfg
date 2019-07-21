@@ -340,19 +340,37 @@
 		<welcome-file>/jsp/index.jsp</welcome-file>
 	</welcome-file-list>
 
-<!--	<context-param>-->
-<!--		<param-name>contextClass</param-name>-->
-<!--		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>-->
-<!--	</context-param>-->
+    <context-param>
+        <param-name>contextClass</param-name>
+        <param-value>
+            org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+        </param-value>
+    </context-param>
 
-<!--	<listener>-->
-<!--		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
-<!--	</listener>-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>main.java.com.javaTask.ApplicationConfiguration</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
 	<servlet>
 		<servlet-name>webapp2</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>
+                org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>
+                main.java.com.javaTask.ApplicationConfiguration
+            </param-value>
+        </init-param>
 	</servlet>
 	<servlet>
         <servlet-name>loginservlet</servlet-name>
